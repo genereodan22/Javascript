@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="design.css">
+    <title>Cart</title>
+</head>
+  <body>
+
+    <div class="col">
+        <div>
+            <img src="air.png">
+            <h3>Niek Airforce:</h3>
+            <h3>Quantity: <button onclick="decrement('item1')">-</button><span id="item1Quantity">0</span><button onclick="increment('item1')"> + </button></h3>
+            <h3>Price: ₱<span id="item1Price">500.00</span></h3>
+        </div>
+    </div>
+        
+    <div class="col">
+        <div>
+            <img src="revol.png">
+            <h3>Mike Revolution:</h3>
+            <h3>Quantity: <button onclick="decrement('item2')">-</button><span id="item2Quantity">0</span><button onclick="increment('item2')"> + </button></h3>
+            <h3>Price: ₱<span id="item2Price">300</span></h3>
+        </div>
+    </div>
+    <div class="col">
+        <h3>Total: ₱<span id="total">  0  </span></h3>
+        <button type="">Check Out</button>
+    </div>
+    
+      
+
+    <script>
+    function increment(add) {
+        var itemQuantity = document.getElementById(add + "Quantity");
+        var itemPrice = document.getElementById(add + "Price");
+        var total = document.getElementById("total");
+
+        var quantity = parseInt(itemQuantity.innerText);
+        var price = parseFloat(itemPrice.innerText);
+        var currentTotal = parseFloat(total.innerText);
+
+        quantity++;
+        itemQuantity.innerText = quantity;
+        total.innerText = (currentTotal + price).toFixed(2);
+    }
+
+    function decrement(deduct) {
+        var itemQuantity = document.getElementById(deduct + "Quantity");
+        var itemPrice = document.getElementById(deduct + "Price");
+        var total = document.getElementById("total");
+
+        var quantity = parseInt(itemQuantity.innerText);
+        var price = parseFloat(itemPrice.innerText);
+        var currentTotal = parseFloat(total.innerText);
+
+    if (quantity > 0) {
+        quantity--;
+        itemQuantity.innerText = quantity;
+        total.innerText = (currentTotal - price).toFixed(2);
+    }
+    }
+
+    </script>
+  </body>
+</html>
